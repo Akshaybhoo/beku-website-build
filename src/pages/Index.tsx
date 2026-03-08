@@ -19,6 +19,7 @@ const Index = () => {
       <Hero />
       <Events />
       <MenuSection />
+      <Gallery />
       <About />
       <Visit />
       <Footer />
