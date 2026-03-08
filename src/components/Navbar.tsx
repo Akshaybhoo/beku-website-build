@@ -4,6 +4,7 @@ import bekuLogo from "@/assets/beku-logo.jpeg";
 const navLinks = [
   { label: "MENU", href: "#menu" },
   { label: "EVENTS", href: "#events" },
+  { label: "GALLERY", href: "#gallery" },
   { label: "VISIT", href: "#visit" },
   { label: "BOOK A TABLE", href: "tel:9008798842" },
 ];

@@ -20,6 +20,7 @@ const galleryItems = [
   { src: bekuMemories1, alt: "Beku Memories", label: "Beku Memories", type: "image" as const },
   { src: bekuMemories2, alt: "Birthday at Beku", label: "Community Love", type: "image" as const },
   { src: bekuMemories3, alt: "Pet friendly Beku", label: "Pet Friendly", type: "image" as const },
+  { src: "/gallery/beku-video-2.mp4", alt: "Beku Video 2", label: "Beku Moments", type: "video" as const },
 ];
 
 const Gallery = () => {
