@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import bekuLogo from "@/assets/beku-logo.jpeg";
 
 const navLinks = [
   { label: "MENU", href: "#menu" },
@@ -18,12 +19,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 transition-all duration-300 bg-ink border-b-2 border-mustard ${scrolled ? "nav-scrolled" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-3 transition-all duration-500 ${
+        scrolled ? "bg-teal/95 nav-scrolled" : "bg-teal"
+      }`}
     >
-      <a href="#" className="font-headline text-3xl md:text-4xl text-cream tracking-wide">
-        BEKU
+      <a href="#" className="flex items-center gap-3">
+        <img src={bekuLogo} alt="Beku Logo" className="w-10 h-10 rounded-full object-cover" />
+        <span className="font-headline text-2xl md:text-3xl text-sage tracking-wide">BEKU</span>
       </a>
-      <span className="hidden md:block font-body italic text-terracotta text-lg">
+      <span className="hidden md:block font-body italic text-sage/80 text-base">
         ಬೇಕು
       </span>
       <div className="hidden md:flex gap-6">
@@ -31,7 +35,7 @@ const Navbar = () => {
           <a
             key={link.label}
             href={link.href}
-            className="font-mono text-xs text-cream/80 tracking-wider hover:text-mustard transition-colors"
+            className="font-mono text-[11px] text-cream/70 tracking-wider hover:text-sage transition-colors"
           >
             {link.label}
           </a>
