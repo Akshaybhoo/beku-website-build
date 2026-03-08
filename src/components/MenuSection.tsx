@@ -1,42 +1,54 @@
 const menuItems = [
-  { emoji: "🥐", name: "Mysore Pak Croissant", desc: "A uniquely Bangalore creation — eggless croissant meets iconic South Indian sweet.", badge: "⭐ Bestseller" },
-  { emoji: "🌹", name: "White Chocolate & Rose Latte", desc: "Delicate, floral, and warming. Our most-photographed drink.", badge: "☕ Must Try" },
-  { emoji: "🥧", name: "Pecan Pie", desc: "Shortbread crust with perfectly balanced filling. Vegan-friendly and utterly indulgent.", badge: "🌿 Vegan" },
-  { emoji: "🍵", name: "Strawberry Matcha", desc: "Vibrant, layered, refreshing — earthy matcha meets sweet strawberry.", badge: "🌿 Vegan" },
-  { emoji: "🍋", name: "Lemon Tea Cake", desc: "Bright lemon cake with a glossy curd. Light enough for afternoon, indulgent enough for a treat.", badge: "" },
-  { emoji: "🍛", name: "Thai Green Curry", desc: "Rich, fragrant, customizable for vegan preferences. Most-loved savoury dish.", badge: "🌿 Vegan" },
+  { name: "MYSORE PAK CROISSANT", desc: "Bangalore in a bite. Our signature eggless creation.", tag: "Bakery" },
+  { name: "WHITE CHOC & ROSE LATTE", desc: "Floral. Warming. Unforgettable.", tag: "Coffee" },
+  { name: "PECAN PIE", desc: "Shortbread base, perfect filling. Vegan.", tag: "Bakery" },
+  { name: "STRAWBERRY MATCHA", desc: "Earthy meets sweet. Layered and vibrant.", tag: "Drinks" },
+  { name: "LEMON TEA CAKE", desc: "A glossy curd. Afternoon perfection.", tag: "Bakery" },
+  { name: "THAI GREEN CURRY", desc: "Rich, fragrant, customizable vegan.", tag: "Food" },
 ];
 
 const MenuSection = () => (
-  <section id="menu" className="py-24 px-6 md:px-16 bg-background">
-    <div className="max-w-6xl mx-auto">
-      <div className="scroll-reveal mb-16">
-        <span className="font-mono text-xs small-caps tracking-widest text-muted-foreground">What We Serve</span>
-        <h2 className="font-display text-4xl md:text-5xl font-light mt-3">
-          Our <em className="text-terracotta">Favourites</em>
+  <section id="menu" className="bg-terracotta py-20 px-6 md:px-16 relative torn-divider">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.4fr_1fr] gap-12 items-start">
+      {/* Left decorative */}
+      <div className="scroll-reveal relative">
+        <h2 className="font-headline text-[60px] md:text-[80px] text-cream leading-[0.9] mb-4">
+          THE GOOD STUFF
         </h2>
+        <p className="font-body italic text-cream/80 text-lg">
+          Eggless. Mostly vegan. Always delicious.
+        </p>
+        {/* Large decorative MENU text */}
+        <div className="hidden lg:block mt-12">
+          <span className="font-headline text-[200px] text-cream/[0.06] leading-none block select-none">
+            MENU
+          </span>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
-        {menuItems.map((item) => (
-          <div
-            key={item.name}
-            className="scroll-reveal group relative bg-parchment p-8 transition-colors duration-500 hover:bg-espresso overflow-hidden"
-          >
-            {item.badge && (
-              <span className="absolute top-4 right-4 font-mono text-[10px] tracking-wider text-terracotta group-hover:text-gold transition-colors duration-500">
-                {item.badge}
-              </span>
+
+      {/* Right — menu items */}
+      <div className="scroll-reveal space-y-0">
+        {menuItems.map((item, i) => (
+          <div key={item.name}>
+            <div className="menu-item py-6 px-4 group">
+              <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6">
+                <h3 className="font-headline text-2xl md:text-4xl text-cream leading-none">
+                  {item.name}
+                </h3>
+                <span className="font-mono text-[10px] tracking-wider text-cream/50 border border-cream/20 px-2 py-0.5 self-start">
+                  {item.tag}
+                </span>
+              </div>
+              <p className="font-mono text-xs text-cream/60 mt-2">{item.desc}</p>
+            </div>
+            {i < menuItems.length - 1 && (
+              <div className="h-[1px] bg-mustard/40" />
             )}
-            <span className="text-3xl block mb-4">{item.emoji}</span>
-            <h3 className="font-display text-xl text-espresso group-hover:text-cream transition-colors duration-500 mb-2">
-              {item.name}
-            </h3>
-            <p className="font-mono text-xs text-muted-foreground group-hover:text-cream/60 transition-colors duration-500 leading-relaxed">
-              {item.desc}
-            </p>
-            <div className="menu-card-line" />
           </div>
         ))}
+        <p className="font-mono text-xs text-cream/50 mt-8 pt-4 border-t border-cream/20">
+          Avg spend ₹750 for two
+        </p>
       </div>
     </div>
   </section>

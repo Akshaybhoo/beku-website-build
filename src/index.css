@@ -4,53 +4,49 @@
 
 @layer base {
   :root {
-    --background: 36 33% 93%;
-    --foreground: 20 52% 12%;
+    --background: 38 38% 90%;
+    --foreground: 25 50% 3%;
 
-    --card: 38 33% 88%;
-    --card-foreground: 20 52% 12%;
+    --card: 38 38% 86%;
+    --card-foreground: 25 50% 3%;
 
-    --popover: 36 33% 93%;
-    --popover-foreground: 20 52% 12%;
+    --popover: 38 38% 90%;
+    --popover-foreground: 25 50% 3%;
 
-    --primary: 20 52% 12%;
-    --primary-foreground: 36 33% 93%;
+    --primary: 25 50% 3%;
+    --primary-foreground: 38 38% 90%;
 
-    --secondary: 38 33% 88%;
-    --secondary-foreground: 20 52% 12%;
+    --secondary: 38 38% 86%;
+    --secondary-foreground: 25 50% 3%;
 
-    --muted: 38 20% 82%;
-    --muted-foreground: 20 20% 40%;
+    --muted: 38 20% 78%;
+    --muted-foreground: 25 20% 35%;
 
-    --accent: 18 52% 47%;
-    --accent-foreground: 36 33% 93%;
+    --accent: 14 67% 46%;
+    --accent-foreground: 38 38% 90%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 36 25% 80%;
-    --input: 36 25% 80%;
-    --ring: 18 52% 47%;
+    --border: 38 25% 75%;
+    --input: 38 25% 75%;
+    --ring: 14 67% 46%;
 
     --radius: 0.25rem;
 
     /* Brand tokens */
-    --cream: 36 33% 93%;
-    --parchment: 38 33% 88%;
-    --espresso: 20 52% 12%;
-    --terracotta: 18 52% 47%;
-    --sage: 104 12% 49%;
-    --gold: 36 40% 60%;
-    --dusty-rose: 14 30% 54%;
-    --near-black: 36 30% 8%;
-
-    /* Gradients */
-    --gradient-gold: radial-gradient(circle, hsl(36 50% 70% / 0.6), hsl(36 40% 60% / 0.1));
+    --ink: 25 50% 3%;
+    --cream: 38 38% 90%;
+    --terracotta: 14 67% 46%;
+    --mustard: 43 78% 46%;
+    --sage: 107 20% 40%;
+    --blush: 11 62% 76%;
+    --deep-green: 157 33% 17%;
 
     /* Fonts */
-    --font-display: 'Cormorant Garamond', serif;
-    --font-logo: 'Playfair Display', serif;
-    --font-mono: 'DM Mono', monospace;
+    --font-headline: 'Bebas Neue', sans-serif;
+    --font-body: 'Lora', serif;
+    --font-mono: 'Space Mono', monospace;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -68,43 +64,43 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-display);
+    @apply bg-cream text-ink;
+    font-family: var(--font-body);
     cursor: none;
   }
   a, button {
     cursor: none;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer components {
-  .font-logo {
-    font-family: var(--font-logo);
+  .font-headline {
+    font-family: var(--font-headline);
+    text-transform: uppercase;
   }
-  .font-display {
-    font-family: var(--font-display);
+  .font-body {
+    font-family: var(--font-body);
+    text-transform: none;
   }
   .font-ui {
     font-family: var(--font-mono);
   }
-  .small-caps {
-    font-variant: small-caps;
-    letter-spacing: 0.08em;
-  }
 }
 
-/* Grain overlay */
-.grain-overlay::before {
+/* Noise texture overlay */
+.noise-overlay::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
@@ -115,14 +111,17 @@
   100% { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: marquee-scroll 30s linear infinite;
+  animation: marquee-scroll 20s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* Scroll reveal */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 .scroll-reveal.revealed {
   opacity: 1;
@@ -130,61 +129,25 @@
 }
 
 /* Hero stagger */
-.hero-stagger { opacity: 0; transform: translateY(24px); animation: hero-fade-up 0.7s ease-out forwards; }
-.hero-stagger-1 { animation-delay: 0.2s; }
-.hero-stagger-2 { animation-delay: 0.4s; }
-.hero-stagger-3 { animation-delay: 0.7s; }
-.hero-stagger-4 { animation-delay: 0.9s; }
-.hero-stagger-5 { animation-delay: 1.1s; }
-.hero-stagger-6 { animation-delay: 1.3s; }
+.hero-stagger { opacity: 0; transform: translateY(30px); animation: hero-fade-up 0.6s ease-out forwards; }
+.hero-stagger-1 { animation-delay: 0.1s; }
+.hero-stagger-2 { animation-delay: 0.25s; }
+.hero-stagger-3 { animation-delay: 0.4s; }
+.hero-stagger-4 { animation-delay: 0.55s; }
+.hero-stagger-5 { animation-delay: 0.7s; }
 
 @keyframes hero-fade-up {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Nav link underline */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  background: hsl(var(--terracotta));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
+/* Hero cards stagger from right */
+.card-stagger { opacity: 0; transform: translateX(60px) rotate(0deg); animation: card-slide-in 0.7s ease-out forwards; }
+.card-stagger-1 { animation-delay: 0.4s; }
+.card-stagger-2 { animation-delay: 0.6s; }
+.card-stagger-3 { animation-delay: 0.8s; }
 
-/* Menu card hover underline */
-.menu-card-line {
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%;
-  height: 2px;
-  background: hsl(var(--terracotta));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-.group:hover .menu-card-line {
-  transform: scaleX(1);
-}
-
-/* Scroll line */
-@keyframes scroll-line {
-  0% { transform: translateY(0); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(20px); opacity: 0; }
-}
-.scroll-line-anim {
-  animation: scroll-line 2s ease-in-out infinite;
+@keyframes card-slide-in {
+  to { opacity: 1; transform: translateX(0) rotate(var(--card-rotate, 0deg)); }
 }
 
 /* Custom cursor */
@@ -199,8 +162,8 @@
   transition: transform 0.1s ease;
 }
 .cursor-ring {
-  width: 32px; height: 32px;
-  border: 1.5px solid hsl(var(--terracotta) / 0.5);
+  width: 36px; height: 36px;
+  border: 2px solid hsl(var(--terracotta) / 0.4);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -208,5 +171,60 @@
   transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease;
 }
-.cursor-dot.hovered { transform: translate(-50%, -50%) scale(1.5); }
-.cursor-ring.hovered { width: 48px; height: 48px; }
+.cursor-dot.hovered { transform: translate(-50%, -50%) scale(1.8); }
+.cursor-ring.hovered { width: 52px; height: 52px; }
+
+/* Torn paper divider */
+.torn-divider {
+  position: relative;
+  overflow: visible;
+}
+.torn-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: inherit;
+  clip-path: polygon(
+    0% 0%, 3% 60%, 6% 20%, 10% 80%, 14% 30%, 18% 70%, 22% 10%, 26% 90%, 30% 40%, 34% 75%, 38% 15%, 42% 85%, 46% 25%, 50% 95%, 54% 35%, 58% 80%, 62% 20%, 66% 70%, 70% 5%, 74% 65%, 78% 30%, 82% 90%, 86% 10%, 90% 75%, 94% 40%, 98% 85%, 100% 0%
+  );
+  z-index: 2;
+}
+
+/* Menu item hover */
+.menu-item {
+  transition: transform 0.3s ease, padding-left 0.3s ease;
+  border-left: 3px solid transparent;
+}
+.menu-item:hover {
+  transform: translateX(8px);
+  border-left-color: hsl(var(--mustard));
+}
+
+/* Nav scroll state */
+.nav-scrolled {
+  background: hsl(var(--ink) / 0.95) !important;
+  backdrop-filter: blur(10px);
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Count-up shimmer */
+@keyframes count-shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Stamp badge */
+.stamp-badge {
+  border: 2px dashed hsl(var(--mustard));
+  border-radius: 50%;
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-12deg);
+}

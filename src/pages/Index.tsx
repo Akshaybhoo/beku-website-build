@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import About from "@/components/About";
-import MenuSection from "@/components/MenuSection";
-import Experience from "@/components/Experience";
 import Events from "@/components/Events";
+import MenuSection from "@/components/MenuSection";
+import About from "@/components/About";
 import Visit from "@/components/Visit";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
@@ -14,15 +12,13 @@ const Index = () => {
   useScrollReveal();
 
   return (
-    <div className="grain-overlay">
+    <div className="noise-overlay">
       <CustomCursor />
       <Navbar />
       <Hero />
-      <Marquee />
-      <About />
-      <MenuSection />
-      <Experience />
       <Events />
+      <MenuSection />
+      <About />
       <Visit />
       <Footer />
     </div>
