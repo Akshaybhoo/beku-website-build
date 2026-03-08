@@ -8,19 +8,18 @@ const menuItems = [
 ];
 
 const MenuSection = () => (
-  <section id="menu" className="bg-terracotta py-20 px-6 md:px-16 relative torn-divider">
+  <section id="menu" className="bg-deep-green py-20 px-6 md:px-16 relative">
     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.4fr_1fr] gap-12 items-start">
       {/* Left decorative */}
       <div className="scroll-reveal relative">
-        <h2 className="font-headline text-[60px] md:text-[80px] text-cream leading-[0.9] mb-4">
+        <h2 className="font-headline text-[50px] md:text-[70px] text-cream/90 leading-[0.9] mb-4">
           THE GOOD STUFF
         </h2>
-        <p className="font-body italic text-cream/80 text-lg">
+        <p className="font-body italic text-sage text-lg">
           Eggless. Mostly vegan. Always delicious.
         </p>
-        {/* Large decorative MENU text */}
         <div className="hidden lg:block mt-12">
-          <span className="font-headline text-[200px] text-cream/[0.06] leading-none block select-none">
+          <span className="font-headline text-[180px] text-sage/[0.06] leading-none block select-none">
             MENU
           </span>
         </div>
@@ -32,21 +31,21 @@ const MenuSection = () => (
           <div key={item.name}>
             <div className="menu-item py-6 px-4 group">
               <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6">
-                <h3 className="font-headline text-2xl md:text-4xl text-cream leading-none">
+                <h3 className="font-headline text-2xl md:text-3xl text-cream/90 leading-none">
                   {item.name}
                 </h3>
-                <span className="font-mono text-[10px] tracking-wider text-cream/50 border border-cream/20 px-2 py-0.5 self-start">
+                <span className="font-mono text-[10px] tracking-wider text-sage/60 border border-sage/20 px-2 py-0.5 rounded self-start">
                   {item.tag}
                 </span>
               </div>
-              <p className="font-mono text-xs text-cream/60 mt-2">{item.desc}</p>
+              <p className="font-mono text-[11px] text-cream/50 mt-2">{item.desc}</p>
             </div>
             {i < menuItems.length - 1 && (
-              <div className="h-[1px] bg-mustard/40" />
+              <div className="h-[1px] bg-sage/20" />
             )}
           </div>
         ))}
-        <p className="font-mono text-xs text-cream/50 mt-8 pt-4 border-t border-cream/20">
+        <p className="font-mono text-[11px] text-sage/40 mt-8 pt-4 border-t border-sage/15">
           Avg spend ₹750 for two
         </p>
       </div>
